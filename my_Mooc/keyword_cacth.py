@@ -2,8 +2,8 @@
 
 import jieba.analyse
 import re
-from session import get_session
-from createbales import Project_ifo
+from database.session import get_session
+from database.createbales import Project_ifo
 
 #TODO:制作themeTOP，用原生的词典，除去专业技术
 
@@ -108,12 +108,12 @@ class Keywords_Catch():
                 if(len(self.top15)<10):
                     self.top15.append(self.top[i])
                     print(self.top[i])
-        self.storeDate()
+        #self.storeDate()
 
     #制作停用词和专业词词典
     def makeDic(self):
         print("!!!!!")
-        stopwords_file = "stopwords.txt"
+        stopwords_file = "ciku/stopwords.txt"
         stop_f = open(stopwords_file, "r", encoding='utf-8')
         #停用词词表
         self.stop_words = list()
